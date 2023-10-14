@@ -17,6 +17,7 @@ def display_button(shot_type):
     if st.button(shot_type):
         st.session_state.button_counts[shot_type] += 1
     st.write(f"{st.session_state.button_counts[shot_type]}")
+    print()
 
 # Display each button
 for shot_type in st.session_state.button_counts.keys():
