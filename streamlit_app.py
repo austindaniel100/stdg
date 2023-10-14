@@ -13,7 +13,7 @@ def get_data():
         },
         "total_throws": 0
     }
-
+print("HI")
 data = get_data()
 
 st.title('Disc Golf Shots Tracker')
