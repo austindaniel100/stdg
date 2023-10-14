@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Check if 'button_counts' is already in the session state
+# Check if 'button_counts' and 'total_throws' are already in the session state
 if 'button_counts' not in st.session_state:
     st.session_state.button_counts = {
         "Ace": 0,
@@ -9,6 +9,8 @@ if 'button_counts' not in st.session_state:
         "C2": 0,
         "Other": 0
     }
+if 'total_throws' not in st.session_state:
+    st.session_state.total_throws = 0
 
 st.title('Disc Golf Shots Tracker')
 
@@ -16,8 +18,11 @@ st.title('Disc Golf Shots Tracker')
 def display_button(shot_type):
     if st.button(shot_type):
         st.session_state.button_counts[shot_type] += 1
+        st.session_state.total_throws += 1
     st.write(f"{st.session_state.button_counts[shot_type]}")
-    print()
+
+# Display total throws
+st.write(f"Total Throws: {st.session_state.total_throws}")
 
 # Display each button
 for shot_type in st.session_state.button_counts.keys():
