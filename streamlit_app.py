@@ -21,9 +21,9 @@ def display_button(shot_type):
         st.session_state.total_throws += 1
     st.write(f"{st.session_state.button_counts[shot_type]}")
 
-# Display total throws
-st.write(f"Total Throws: {st.session_state.total_throws}")
-
 # Display each button
 for shot_type in st.session_state.button_counts.keys():
     display_button(shot_type)
+
+# Display total throws after all buttons have been processed
+st.write(f"Total Throws: {st.session_state.total_throws}")
